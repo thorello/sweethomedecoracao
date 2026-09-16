@@ -102,7 +102,7 @@ h1 {
 <p class="foot">Página de afiliado. Comissão se você comprar pelo link. cookie 7 dias. SKU: 47760993483</p>
 </main>
 <div class="cta-dock">
-<a class="cta" id="btnApp" href="https://s.shopee.com.br/an_redir?origin_link=https%3A%2F%2Fshopee.com.br%2Fproduct%2F1623996219%2F47760993483&amp;affiliate_id=18399191147&amp;sub_id1=tiktok_ads&amp;sub_id2=pre_sell&amp;sub_id3=porta_tempero_giratorio&amp;sub_id4=video_veo3_hook01&amp;sub_id5=broad_mulheres_25_45" rel="noopener">Comprar no app Shopee</a>
+<a class="cta" id="btnApp" href="https://s.shopee.com.br/an_redir?origin_link=https%3A%2F%2Fshopee.com.br%2Fproduct%2F1623996219%2F47760993483&amp;affiliate_id=18399191147&amp;sub_id1=tiktok_ads&amp;sub_id2=pre_sell&amp;sub_id3=porta_tempero_giratorio&amp;sub_id4=video_veo3_hook01&amp;sub_id5=broad_mulheres_25_45" data-product-path="shopee.com.br/product/1623996219/47760993483" data-shop-id="1623996219" data-item-id="47760993483" rel="noopener">Comprar no app Shopee</a>
 <p class="hint">Abre no app para finalizar a compra.</p>
 </div>
 <script>
@@ -110,19 +110,29 @@ h1 {
   var btn = document.getElementById("btnApp");
   if (!btn) return;
   var href = btn.getAttribute("href") || "";
+  var shopId = btn.getAttribute("data-shop-id") || "";
+  var itemId = btn.getAttribute("data-item-id") || "";
   btn.addEventListener("click", function (ev) {
     if (!href) return;
     ev.preventDefault();
-    var intent = "intent://shopee.com.br/#Intent;scheme=https;package=com.shopee.br;S.browser_fallback_url="
+    var ua = navigator.userAgent || "";
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+    var isWebView = /FBAN|FBAV|FB_IAB|Instagram|TikTok|Bytedance|musical_ly/i.test(ua);
+    if (isIOS || !isWebView) {
+      window.location.href = href;
+      return;
+    }
+    try {
+      if (navigator.sendBeacon) navigator.sendBeacon(href);
+      else { var px = new Image(); px.src = href; }
+    } catch (e) {}
+    var intent = "intent://product?itemid=" + encodeURIComponent(itemId)
+      + "&shopid=" + encodeURIComponent(shopId)
+      + "#Intent;scheme=shopee;package=com.shopee.br;S.browser_fallback_url="
       + encodeURIComponent(href) + ";end";
-    var fellBack = false;
-    var t = setTimeout(function () {
-      if (!fellBack) { fellBack = true; window.location.href = href; }
-    }, 320);
     try {
       window.location.href = intent;
     } catch (e) {
-      clearTimeout(t);
       window.location.href = href;
     }
   });
