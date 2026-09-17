@@ -577,7 +577,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var sw = slide ? slide.offsetWidth : 280;
     var visible = (el.clientWidth || window.innerWidth) / Math.max(sw, 1);
     var loopOn = n >= visible + 1;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     new Swiper(el, {
         effect: 'coverflow',
         grabCursor: true,
@@ -601,10 +600,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         loop: loopOn,
         rewind: !loopOn,
-        autoplay: reduce ? false : {
-            delay: 4000,
-            disableOnInteraction: false,
-        }
+        autoplay: false
     });
 });
 (function () {
