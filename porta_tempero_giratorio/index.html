@@ -79,10 +79,14 @@ main > .hero-copy {
   z-index: 1;
 }
 main > .hero-media {
-  height: 50vh;
+  height: auto;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   position: relative;
   z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (min-width: 1024px) {
   main {
@@ -94,7 +98,10 @@ main > .hero-media {
     align-items: center;
     height: 100%;
   }
-  main > .hero-media { height: 100%; }
+  main > .hero-media {
+    height: 100%;
+    aspect-ratio: auto;
+  }
 }
 .hero-media .foto,
 .hero-media img {
@@ -102,7 +109,7 @@ main > .hero-media {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 #canvas-hero {
   position: absolute;
@@ -231,15 +238,22 @@ main > .hero-media {
 }
 .swiper-slide {
   width: 280px;
-  height: 400px;
+  height: 280px;
+  aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  background: var(--beige);
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 @media (min-width: 768px) {
-  .swiper-slide { width: 340px; height: 460px; }
+  .swiper-slide { width: 340px; height: 340px; }
 }
 .mySwiper {
   overflow: hidden;
@@ -279,6 +293,26 @@ main > .hero-media {
   }
 }
 .hero.carousel { position: absolute; inset: 0; height: 100%; }
+.hero-media .hero {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+@media (min-width: 1024px) {
+  .hero-media .hero,
+  .hero.carousel {
+    position: relative;
+    inset: auto;
+    width: min(100%, 100%);
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+}
 .depos { padding: 6rem 0; background: var(--light); position: relative; z-index: 10; }
 .depos-avatar {
   width: 3rem; height: 3rem; border-radius: 999px;
@@ -391,7 +425,7 @@ Nota 4,9 · 162 vendas
 </div>
 </div>
 </div>
-<div class="hero-media w-full lg:w-1/2 h-[50vh] lg:h-full order-1 lg:order-2 relative bg-brand-beige overflow-hidden"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="hero carousel" id="galeria"><div class="track" id="track"><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="360" height="640"/></div></div><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right"></i></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button></div></div><div class="absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><i class="fa-solid fa-star"></i></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+162 Vendidos</p></div></div></div>
+<div class="hero-media w-full lg:w-1/2 lg:h-full order-1 lg:order-2 relative bg-brand-beige overflow-hidden"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="hero carousel" id="galeria"><div class="track" id="track"><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="absolute inset-0 w-full h-full object-contain" src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div></div><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right"></i></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button></div></div><div class="absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><i class="fa-solid fa-star"></i></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+162 Vendidos</p></div></div></div>
 </main>
 <div class="bg-white py-10 border-y border-gray-100 relative z-20">
 <div class="max-w-6xl mx-auto px-6 text-center">
@@ -404,7 +438,7 @@ Nota 4,9 · 162 vendas
 </div>
 </div>
 <section class="py-24 bg-brand-light relative z-10" id="detalhes"><div class="max-w-7xl mx-auto px-6"><div class="text-center mb-16" data-aos="fade-up"><span class="text-brand-terracotta text-sm font-bold tracking-[0.2em] uppercase">Detalhes</span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark mt-4 mb-6">Por que fica na casa</h2><div class="w-20 h-1 bg-brand-terracotta mx-auto rounded-full"></div></div><ul class="teasers grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><i class="fa-solid fa-images"></i></div><h3 class="font-serif text-xl font-bold mb-3">21 × 33 cm</h3></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3 class="font-serif text-xl font-bold mb-3">Base giratória 360° com rotação suave</h3></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3 class="font-serif text-xl font-bold mb-3">20 potes de vidro para temperos e condimentos</h3></li></ul></div></section>
-<section class="py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="galeria-detalhe"><div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div><div class="max-w-6xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><i class="fa-solid fa-camera"></i></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">Beleza em cada detalhe</h2><p class="text-gray-400 font-light tracking-wide">Arraste para ver o produto em outros ângulos.</p></div><div data-aos="zoom-in" data-aos-duration="1000"><div class="swiper-container swiper mySwiper"><div class="swiper-wrapper"><div class="swiper-slide relative group"><img src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div><div class="swiper-slide relative group"><img src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-cover" width="360" height="480"/></div></div><div class="swiper-pagination mt-12"></div></div></div></div></section>
+<section class="py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="galeria-detalhe"><div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div><div class="max-w-6xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><i class="fa-solid fa-camera"></i></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">Beleza em cada detalhe</h2><p class="text-gray-400 font-light tracking-wide">Arraste para ver o produto em outros ângulos.</p></div><div data-aos="zoom-in" data-aos-duration="1000"><div class="swiper-container swiper mySwiper"><div class="swiper-wrapper"><div class="swiper-slide relative group"><img src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div><div class="swiper-slide relative group"><img src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" class="w-full h-full object-contain" width="640" height="640"/></div></div><div class="swiper-pagination mt-12"></div></div></div></div></section>
 
 <section class="faq py-24 bg-white relative z-10 border-t border-gray-100" id="faq"><div class="max-w-3xl mx-auto px-6"><div class="text-center mb-14" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-brand-terracotta/10 items-center justify-center text-brand-terracotta text-xl mb-4"><i class="fa-solid fa-circle-question"></i></span><h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Dúvidas frequentes</h2><p class="text-gray-500 font-light text-sm">Sobre a compra na Shopee, não sobre um lote específico.</p></div><div class="faq-list space-y-4"><div class="faq-item bg-brand-light rounded-2xl border border-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="100"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-brand-dark pr-4">O envio é feito pela Shopee?</span><i class="fa-solid fa-chevron-down faq-icon text-brand-terracotta transition-transform duration-300"></i></button><div class="faq-answer px-6"><p class="text-sm text-gray-600 font-light pb-5">Sim. A compra é finalizada no app Shopee e o envio segue a logística do vendedor na plataforma.</p></div></div><div class="faq-item bg-brand-light rounded-2xl border border-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="200"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-brand-dark pr-4">E se o pedido tiver problema?</span><i class="fa-solid fa-chevron-down faq-icon text-brand-terracotta transition-transform duration-300"></i></button><div class="faq-answer px-6"><p class="text-sm text-gray-600 font-light pb-5">A compra fica coberta pela proteção da Shopee. Abra a conversa ou a reclamação pelo próprio app.</p></div></div></div></div></section>
 <section class="py-20 bg-brand-terracotta relative overflow-hidden z-10">
