@@ -160,8 +160,33 @@ main > .hero-media {
 }
 #oferta { text-align: left; }
 #oferta h1 { text-wrap: balance; text-align: left; }
-.preco { font-family: var(--serif); line-height: 1; }
-.cents { font-size: 0.55em; font-weight: 600; letter-spacing: 0.02em; }
+.preco {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7.2vw, 3.35rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--dark);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
+.preco .currency {
+  font-size: 0.36em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-right: 0.28em;
+  transform: translateY(-0.08em);
+}
+.preco .reais { font-weight: 700; }
+.preco .cents {
+  font-size: 0.46em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-left: 0.04em;
+}
 .proof-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -347,8 +372,8 @@ Nota 4,7 · 320 vendas
 <div class="flex items-end gap-4 mb-8 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
 <div>
 <p class="prova text-sm text-gray-400 mb-1">Nota 4,7 · 320 vendas</p>
-<div class="flex items-baseline gap-2">
-<span class="preco font-serif text-4xl font-bold text-brand-dark tracking-tight">R$ 49<span class="cents">,90</span></span>
+<div class="flex items-baseline">
+<span class="preco"><span class="currency">R$</span><span class="reais">49</span><span class="cents">,90</span></span>
 </div>
 </div>
 </div>
