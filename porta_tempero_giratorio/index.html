@@ -79,13 +79,13 @@ main > .hero-copy {
   z-index: 1;
 }
 main > .hero-media {
-  height: auto;
+  height: min(100vw, 72svh);
   flex-shrink: 0;
   position: relative;
   z-index: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
   background: transparent;
 }
 @media (min-width: 1024px) {
@@ -104,12 +104,13 @@ main > .hero-media {
 }
 .hero-media .hero img,
 .hero-media .foto {
-  position: static;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 .section-lines,
 #canvas-hero,
@@ -296,47 +297,25 @@ main > .hero-media {
   }
 }
 .hero.carousel {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .hero-media .hero {
-  position: relative;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   margin: 0;
   width: 100%;
-  height: auto;
-}
-@media (min-width: 1024px) {
-  .hero.carousel,
-  .hero-media .hero {
-    width: fit-content;
-    max-width: 100%;
-    max-height: 100%;
-    margin-inline: auto;
-  }
-  .hero-media .hero img {
-    width: auto;
-    max-width: 100%;
-    max-height: 100svh;
-    height: auto;
-  }
-}
-.depos { padding: 6rem 0; background: var(--light); position: relative; z-index: 10; overflow: hidden; }
-.depos-avatar {
-  width: 3rem; height: 3rem; border-radius: 999px;
-  background: #E6DCC8; color: #C87966;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em;
-  flex-shrink: 0;
+  height: 100%;
 }
 .hero.carousel .track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
   scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; height: auto;
+  scrollbar-width: none; height: 100%;
 }
 .hero.carousel .track::-webkit-scrollbar { display: none; }
-.hero.carousel .slide { flex: 0 0 100%; scroll-snap-align: start; height: auto; }
+.hero.carousel .slide { flex: 0 0 100%; scroll-snap-align: start; height: 100%; position: relative; }
 .hero.carousel .nav {
   position: absolute; top: 50%; transform: translateY(-50%);
   width: 44px; height: 44px; border: 0; border-radius: 50%;
@@ -353,6 +332,14 @@ main > .hero-media {
   background: rgba(200,121,102,.35); cursor: pointer;
 }
 .hero.carousel .dot.on { background: var(--terracotta); width: 18px; border-radius: 999px; }
+.depos { padding: 6rem 0; background: var(--light); position: relative; z-index: 10; overflow: hidden; }
+.depos-avatar {
+  width: 3rem; height: 3rem; border-radius: 999px;
+  background: #E6DCC8; color: #C87966;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
 .menu-drawer {
   position: fixed; inset: 0; z-index: 60;
   background: rgba(44,36,27,.42);
@@ -438,7 +425,7 @@ Nota 4,9 · 162 vendas
 </div>
 </div>
 </div>
-<div class="hero-media w-full lg:w-1/2 lg:h-full order-1 lg:order-2 relative overflow-hidden"><div class="hero carousel" id="galeria"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="track" id="track"><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-auto object-contain" src="gal_08.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div></div><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right"></i></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button><button type="button" class="dot" aria-label="Foto 8"></button></div></div><div class="absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><i class="fa-solid fa-star"></i></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+162 Vendidos</p></div></div></div>
+<div class="hero-media w-full lg:w-1/2 lg:h-full order-1 lg:order-2 relative overflow-hidden"><div class="hero carousel" id="galeria"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="track" id="track"><div class="slide relative"><img class="w-full h-full object-cover" src="gal_01.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_02.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_03.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_04.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_05.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_06.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_07.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_08.jpg" alt="Porta Tempero Giratório 20 Potes Vidro Preto Organizador de Condimentos Cozinha 360° Inox" width="640" height="640"/></div></div><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right"></i></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button><button type="button" class="dot" aria-label="Foto 8"></button></div></div><div class="absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><i class="fa-solid fa-star"></i></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+162 Vendidos</p></div></div></div>
 </main>
 <div class="bg-brand-dark py-10 relative overflow-hidden z-10">
 <canvas id="canvas-social" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas>
