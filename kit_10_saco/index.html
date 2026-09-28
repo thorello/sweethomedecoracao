@@ -651,8 +651,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ev.preventDefault();
         var btn = ev.currentTarget;
         var href = btn.getAttribute("href") || "";
-        var shopId = btn.getAttribute("data-shop-id") || "";
-        var itemId = btn.getAttribute("data-item-id") || "";
         if (!href) return;
         var ua = navigator.userAgent || "";
         var isIOS = /iPhone|iPad|iPod/i.test(ua);
@@ -661,13 +659,9 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = href;
           return;
         }
-        try {
-          if (navigator.sendBeacon) navigator.sendBeacon(href);
-          else { var px = new Image(); px.src = href; }
-        } catch (e) {}
-        var intent = "intent://product?itemid=" + encodeURIComponent(itemId)
-          + "&shopid=" + encodeURIComponent(shopId)
-          + "#Intent;scheme=shopee;package=com.shopee.br;S.browser_fallback_url="
+        var bare = href.replace(/^https?:\/\//i, "");
+        var intent = "intent://" + bare
+          + "#Intent;scheme=https;action=android.intent.action.VIEW;S.browser_fallback_url="
           + encodeURIComponent(href) + ";end";
         try {
           window.location.href = intent;
