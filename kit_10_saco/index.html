@@ -7,10 +7,10 @@
 <meta name="theme-color" content="#FDFCF8"/>
 <title>Kit 10 Saco Organizador Multiuso Embalagem Transparente Edre</title>
 <link rel="preload" as="image" href="hero.webp" fetchpriority="high"/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7I_FMl_E.woff2" crossorigin/><link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7I_FMl_E.woff2" crossorigin/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Montserrat:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="lander.css"/>
 <style>
 
@@ -19,8 +19,8 @@
   --terracotta:#C87966; --terracotta-dark:#A65D4D; --beige:#E6DCC8;
   --brown:#8B7355; --dark:#2C241B; --light:#FDFCF8; --ok:#147a4c;
   --cta:#A65D4D; --cta-hover:#8B4538; --trust:#147a4c; --star:#C9A227;
-  --serif:"Playfair Display",Georgia,serif;
-  --sans:Montserrat,system-ui,-apple-system,sans-serif;
+  --serif:Lora,Georgia,serif;
+  --sans:system-ui,-apple-system,sans-serif;
 }
 body {
   background-color: #FDFCF8;
@@ -45,7 +45,7 @@ main > .hero-copy {
   z-index: 1;
 }
 main > .hero-media {
-  height: min(100vw, 72svh);
+  height: min(68vw, 32svh);
   flex-shrink: 0;
   position: relative;
   z-index: 0;
@@ -241,6 +241,10 @@ main > .hero-media {
     box-shadow: none;
     border-radius: 0;
   }
+  #navbar { display: none; }
+  main.pt-20 { padding-top: 0; }
+  .rating-float { display: none; }
+  #oferta .prova { display: none; }
 }
 .hero.carousel {
   position: absolute;
@@ -248,12 +252,25 @@ main > .hero-media {
   width: 100%;
   height: 100%;
 }
-.hero-media .hero {
+.hero-media .hero,
+.hero-media > .hero-shot {
   position: absolute;
   inset: 0;
   margin: 0;
   width: 100%;
   height: 100%;
+}
+.hero-media > .hero-shot { display: block; z-index: 1; }
+.hero-media > .nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: rgba(253,252,248,.92); z-index: 20; cursor: pointer;
+}
+.hero-media > .nav.prev { left: .5rem; }
+.hero-media > .nav.next { right: .5rem; }
+.hero-media > .dots {
+  display: flex; justify-content: center; gap: .4rem;
+  position: absolute; left: 0; right: 0; bottom: .7rem; z-index: 20;
 }
 .hero.carousel .track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -273,11 +290,13 @@ main > .hero-media {
   display: flex; justify-content: center; gap: .4rem;
   position: absolute; left: 0; right: 0; bottom: .7rem; z-index: 20;
 }
-.hero.carousel .dot {
+.hero.carousel .dot,
+.hero-media > .dots .dot {
   width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
   background: rgba(200,121,102,.35); cursor: pointer;
 }
-.hero.carousel .dot.on { background: var(--terracotta); width: 18px; border-radius: 999px; }
+.hero.carousel .dot.on,
+.hero-media > .dots .dot.on { background: var(--terracotta); width: 18px; border-radius: 999px; }
 .depos { padding: 6rem 0; background: var(--light); position: relative; z-index: 10; overflow: hidden; }
 .depos-avatar {
   width: 3rem; height: 3rem; border-radius: 999px;
@@ -309,13 +328,40 @@ main > .hero-media {
   border-bottom: 1px solid rgba(44,36,27,.08);
 }
 .nav-links-mobile a:last-child { border-bottom: 0; }
-#mobile-cta { transition: transform 0.3s ease; }
+#mobile-cta {
+  transform: translateY(120%);
+  transition: transform 0.3s ease;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-aos] { opacity: 1; transform: none; transition: none; }
 }
 
 </style>
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=d.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load("DATVGMJC77U3L597VGA0");
+  ttq.page();
+  var cliqueEnviado = false;
+  function registrarClique(ev) {
+    if (cliqueEnviado) return;
+    function botao(no) {
+      return no && no.closest ? no.closest("a.js-app") : null;
+    }
+    var alvo = botao(ev.target);
+    var caminho = ev.composedPath ? ev.composedPath() : [];
+    for (var i = 0; !alvo && i < caminho.length; i++) alvo = botao(caminho[i]);
+    if (!alvo && d.elementFromPoint) alvo = botao(d.elementFromPoint(ev.clientX, ev.clientY));
+    if (!alvo) return;
+    cliqueEnviado = true;
+    ttq.track("ClickButton", {content_id: "19276310933", content_type: "product"});
+  }
+  d.addEventListener("pointerup", registrarClique, true);
+  d.addEventListener("click", registrarClique, true);
+}(window, document, "ttq");
+</script>
 </head>
 <body class="antialiased selection:bg-brand-terracotta selection:text-white">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -361,38 +407,26 @@ main > .hero-media {
 </a>
 <nav class="nav-links hidden md:flex items-center gap-8 text-sm font-medium text-gray-600"><a href="#detalhes" class="hover:text-brand-terracotta transition-colors">Detalhes</a><a href="#galeria-detalhe" class="hover:text-brand-terracotta transition-colors">Galeria</a><a href="#avaliacoes" class="hover:text-brand-terracotta transition-colors">Avaliações</a><a href="#faq" class="hover:text-brand-terracotta transition-colors">Dúvidas</a></nav>
 <a href="#oferta" class="hidden md:inline-block bg-brand-cta text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-ctaHover transition-colors shadow-lg shadow-brand-cta/30"><svg class="icon mr-2" aria-hidden="true"><use href="#i-bag-shopping"/></svg>Garantir Oferta</a>
-<button type="button" class="md:hidden text-brand-dark text-2xl p-2" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg></button>
 </div>
 </header>
-<div class="menu-drawer" id="menuDrawer">
-<div class="menu-panel">
-<button type="button" class="absolute top-4 right-4 p-3" id="menuClose" aria-label="Fechar menu"><svg class="icon text-2xl" aria-hidden="true"><use href="#i-xmark"/></svg></button>
-<nav class="nav-links nav-links-mobile" aria-label="Seções do produto"><a href="#oferta" class="hover:text-brand-terracotta transition-colors">Produto</a><a href="#detalhes" class="hover:text-brand-terracotta transition-colors">Detalhes</a><a href="#galeria-detalhe" class="hover:text-brand-terracotta transition-colors">Galeria</a><a href="#avaliacoes" class="hover:text-brand-terracotta transition-colors">Avaliações</a></nav>
-</div>
-</div>
 <main class="h-auto overflow-visible pt-20 flex flex-col lg:h-[100svh] lg:max-h-[100svh] lg:flex-row lg:overflow-hidden relative z-10 bg-brand-light" data-campanha="kit_10_saco" data-sku="19276310933">
 <canvas id="canvas-hero" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="cream"></canvas>
+<div class="hero-media w-full lg:w-[48%] lg:h-full order-1 lg:order-2 relative overflow-hidden"><a class="js-app hero-shot" href="https://s.shopee.com.br/3B7pBE1RvJ" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" target="_blank" rel="noopener"><div class="hero carousel" id="galeria"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="track" id="track"><div class="slide relative"><img class="w-full h-full object-cover" src="hero.webp" fetchpriority="high" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_01.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_02.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_03.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_04.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_05.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="slide relative"><img class="w-full h-full object-cover" data-src="gal_06.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div></div></div></a><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button></div><div class="rating-float absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+ de 1337 vendas</p></div></div></div>
 <div class="hero-copy w-full lg:w-[52%] h-auto min-h-0 flex items-start lg:items-center justify-center px-4 pt-4 pb-24 lg:h-full lg:px-10 lg:py-8 order-2 lg:order-1 relative">
 <div class="max-w-xl w-full glass p-6 sm:p-8 lg:p-8 rounded-none lg:rounded-[2rem] lg:shadow-glass" id="oferta" data-aos="fade-up" data-aos-duration="1000">
-<div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand-terracotta uppercase mb-4 bg-brand-terracotta/10 px-4 py-1.5 rounded-full">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-terracotta opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-brand-terracotta"></span>
-</span>
-Nota 4,9 · + de 1363 vendas
-</div>
+<div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand-terracotta uppercase mb-4 bg-brand-terracotta/10 px-4 py-1.5 rounded-full"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-terracotta opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand-terracotta"></span></span>Nota 4,9 · + de 1337 vendas</div>
 <h1 class="font-serif text-3xl lg:text-4xl text-brand-dark leading-[1.15] mb-3 text-left text-balance">Cansada de ver suas roupas de cama e cobertores amontoados, ocupando espaço e expostos <em class="italic text-brand-terracotta font-normal">ao mofo?</em></h1>
 <p class="text-gray-600 text-base sm:text-lg font-light mb-5 leading-relaxed text-left">Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto</p>
 <div class="flex items-end gap-4 mb-5 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
 <div>
-<p class="prova text-sm text-gray-400 mb-1">Nota 4,9 · + de 1363 vendas</p>
+<p class="prova text-sm text-gray-400 mb-1">Nota 4,9 · + de 1337 vendas</p>
 <div class="flex items-baseline">
-<span class="preco"><span class="currency">R$</span><span class="reais">46</span><span class="cents">,99</span></span>
+<span class="preco"><span class="currency">R$</span><span class="reais">47</span><span class="cents">,99</span></span>
 </div>
 </div>
 </div>
 <div class="flex flex-col gap-3">
-<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-sm uppercase tracking-widest font-bold w-full rounded-xl text-center leading-snug" href="https://s.shopee.com.br/2Vs5UxihTd" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Comprar no app Shopee</a>
+<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold w-full rounded-xl text-center leading-snug" id="heroCta" href="https://s.shopee.com.br/3B7pBE1RvJ" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" target="_blank" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Abrir no app Shopee</a>
 <p class="text-center text-xs text-gray-500 font-medium flex items-center justify-center gap-2">
 <svg class="icon text-brand-trust" aria-hidden="true"><use href="#i-shield-halved"/></svg> Compra protegida pela Shopee
 </p>
@@ -405,8 +439,20 @@ Nota 4,9 · + de 1363 vendas
 </div>
 </div>
 </div>
-<div class="hero-media w-full lg:w-[48%] lg:h-full order-1 lg:order-2 relative overflow-hidden"><div class="hero carousel" id="galeria"><div class="absolute inset-0 bg-black/10 z-10 pointer-events-none"></div><div class="track" id="track"><div class="slide relative"><img class="w-full h-full object-cover" src="hero.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" fetchpriority="high" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_01.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_02.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_03.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_04.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_05.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="slide relative"><img class="w-full h-full object-cover" src="gal_06.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div></div><button type="button" class="nav prev" id="prev" aria-label="Foto anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><button type="button" class="nav next" id="next" aria-label="Próxima foto"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button><div class="dots" id="dots"><button type="button" class="dot on" aria-label="Foto 1"></button><button type="button" class="dot" aria-label="Foto 2"></button><button type="button" class="dot" aria-label="Foto 3"></button><button type="button" class="dot" aria-label="Foto 4"></button><button type="button" class="dot" aria-label="Foto 5"></button><button type="button" class="dot" aria-label="Foto 6"></button><button type="button" class="dot" aria-label="Foto 7"></button></div></div><div class="absolute top-24 right-6 lg:top-32 lg:right-10 z-20 glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg animate-bounce" style="animation-duration: 3s;"><div class="bg-brand-star text-white rounded-full w-8 h-8 flex items-center justify-center text-xs"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><div><p class="text-xs font-bold text-brand-dark">4,9/5 Estrelas</p><p class="text-[10px] text-gray-600">+ de 1363 vendas</p></div></div></div>
 </main>
+<section class="py-24 bg-brand-light relative overflow-hidden z-10" id="detalhes"><canvas id="canvas-detalhes" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="blush"></canvas><div class="max-w-7xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark mb-6">Detalhes</h2><div class="w-20 h-1 bg-brand-terracotta mx-auto rounded-full"></div></div><ul class="teasers grid grid-cols-1 md:grid-cols-2 gap-8"><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Proteção Total</h3><p class="text-sm font-light leading-relaxed text-gray-600">Material 100% PVC que blinda suas roupas, toalhas e cobertores contra a umidade e os fungos.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-layer-group"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Espaço Otimizado</h3><p class="text-sm font-light leading-relaxed text-gray-600">Com medidas inteligentes de 44x38x20 cm, cada unidade acomoda perfeitamente até 2 cobertores de casal.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-shield-halved"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Resistência e Segurança</h3><p class="text-sm font-light leading-relaxed text-gray-600">Suporta até 5kg, estruturado com fecho em zíper preto prático para facilitar o manuseio constante.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Kit Econômico</h3><p class="text-sm font-light leading-relaxed text-gray-600">Pacote com 10 unidades para você padronizar e multiplicar o espaço da casa inteira de uma só vez.</p></li></ul></div></section>
+<section class="py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="galeria-detalhe"><canvas id="canvas-galeria" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas><div class="max-w-6xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">Beleza em cada detalhe</h2><p class="text-gray-400 font-light tracking-wide">Arraste para ver o produto em outros ângulos.</p></div><div data-aos="zoom-in" data-aos-duration="1000"><div class="detail-carousel"><div class="detail-track"><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="hero.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_01.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_02.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_03.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_04.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_05.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" data-src="gal_06.webp" decoding="async" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640"/></div></div></div></div></div></section>
+<section class="depos overflow-hidden" id="avaliacoes" aria-label="Avaliações de quem comprou"><canvas id="canvas-avaliacoes" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="gold"></canvas><div class="max-w-7xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-brand-terracotta/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-comments"/></svg></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark mb-4">Aprovada por quem comprou</h2><div class="flex justify-center items-center gap-2 mb-4"><div class="flex text-brand-star text-lg"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><span class="depos-nota font-bold text-brand-dark text-lg">4,9/5</span></div></div><ul class="depos-list grid grid-cols-1 md:grid-cols-3 gap-8"><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="100"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: O tamanho é ótimo e cabe bem 2 cobertores de casal Plástico: O plástico é resistente Gostei bastante da compra, a ideia era…</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">CA</span><div><strong class="text-sm font-bold text-brand-dark">carolserviuc</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="200"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: ideal Resistência: perfeita, nem muito grossa e nem muito fina Plástico: bom Amei, com certeza irei comprar mais!!</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">RO</span><div><strong class="text-sm font-bold text-brand-dark">rosimeirezacarias</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="300"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: O tamanho é excelente e de boa qualidade! Plástico: Parece ser resistente. Otimo custo benefício, Valeu a pena a compra. Estou…</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">DA</span><div><strong class="text-sm font-bold text-brand-dark">danielaaraujo10</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li></ul><div class="text-center mt-12"><a href="https://s.shopee.com.br/3B7pBE1RvJ" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-bold text-brand-terracotta hover:text-brand-terracottaDark transition-colors">Ler todas as avaliações na Shopee <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div></div></section>
+<section class="faq py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="faq"><canvas id="canvas-faq" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas><div class="max-w-3xl mx-auto px-6 relative z-10"><div class="text-center mb-14" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-circle-question"/></svg></span><h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Dúvidas frequentes</h2><p class="text-gray-400 font-light text-sm">Sobre a compra na Shopee, não sobre um lote específico.</p></div><div class="faq-list space-y-4"><div class="faq-item bg-white/5 rounded-2xl border border-white/10 overflow-hidden" data-aos="fade-up" data-aos-delay="100"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-white pr-4">O envio é feito pela Shopee?</span><svg class="icon faq-icon text-brand-terracotta transition-transform duration-300" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer px-6"><p class="text-sm text-gray-300 font-light pb-5">Sim. A compra é finalizada no app Shopee e o envio segue a logística do vendedor na plataforma.</p></div></div><div class="faq-item bg-white/5 rounded-2xl border border-white/10 overflow-hidden" data-aos="fade-up" data-aos-delay="200"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-white pr-4">E se o pedido tiver problema?</span><svg class="icon faq-icon text-brand-terracotta transition-transform duration-300" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer px-6"><p class="text-sm text-gray-300 font-light pb-5">A compra fica coberta pela proteção da Shopee. Abra a conversa ou a reclamação pelo próprio app.</p></div></div></div></div></section>
+<section class="py-20 bg-brand-terracotta relative overflow-hidden z-10">
+<canvas id="canvas-cta" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="terracotta"></canvas>
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+<h2 class="font-serif text-3xl md:text-5xl text-white mb-6"><svg class="icon text-2xl md:text-3xl mr-2 align-middle opacity-90" aria-hidden="true"><use href="#i-house-chimney"/></svg> Leva o seu hoje</h2>
+<p class="text-brand-light/90 text-lg font-light mb-10 max-w-2xl mx-auto">Abre o app Shopee logado para finalizar a compra deste SKU.</p>
+<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold w-full rounded-xl text-center leading-snug btn-on-terracotta rounded-full max-w-md mx-auto hover:scale-105" href="https://s.shopee.com.br/3B7pBE1RvJ" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" target="_blank" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Abrir no app Shopee</a>
+<p class="text-white/70 text-xs mt-6">Pagamento e envio pela Shopee</p>
+</div>
+</section>
 <div class="bg-brand-dark py-10 relative overflow-hidden z-10">
 <canvas id="canvas-social" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas>
 <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
@@ -418,19 +464,6 @@ Nota 4,9 · + de 1363 vendas
 </div>
 </div>
 </div>
-<section class="py-24 bg-brand-light relative overflow-hidden z-10" id="detalhes"><canvas id="canvas-detalhes" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="blush"></canvas><div class="max-w-7xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark mb-6">Detalhes</h2><div class="w-20 h-1 bg-brand-terracotta mx-auto rounded-full"></div></div><ul class="teasers grid grid-cols-1 md:grid-cols-2 gap-8"><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Proteção Total</h3><p class="text-sm font-light leading-relaxed text-gray-600">Material 100% PVC que blinda suas roupas, toalhas e cobertores contra a umidade e os fungos.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-layer-group"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Espaço Otimizado</h3><p class="text-sm font-light leading-relaxed text-gray-600">Com medidas inteligentes de 44x38x20 cm, cada unidade acomoda perfeitamente até 2 cobertores de casal.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-shield-halved"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Resistência e Segurança</h3><p class="text-sm font-light leading-relaxed text-gray-600">Suporta até 5kg, estruturado com fecho em zíper preto prático para facilitar o manuseio constante.</p></li><li class="bg-white p-8 rounded-3xl shadow-soft hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400"><div class="w-14 h-14 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center text-brand-terracotta text-2xl mb-6"><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg></div><h3 class="font-serif text-xl font-bold mb-3">Kit Econômico</h3><p class="text-sm font-light leading-relaxed text-gray-600">Pacote com 10 unidades para você padronizar e multiplicar o espaço da casa inteira de uma só vez.</p></li></ul></div></section>
-<section class="py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="galeria-detalhe"><canvas id="canvas-galeria" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas><div class="max-w-6xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl mb-4">Beleza em cada detalhe</h2><p class="text-gray-400 font-light tracking-wide">Arraste para ver o produto em outros ângulos.</p></div><div data-aos="zoom-in" data-aos-duration="1000"><div class="detail-carousel"><div class="detail-track"><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="hero.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_01.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_02.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_03.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_04.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_05.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div><div class="detail-slide relative group"><img class="w-full h-full object-contain" src="gal_06.webp" alt="Kit 10 Saco Organizador Multiuso Embalagem Transparente Edredom Coberta Toalhas de Pvc e Ziper Preto" width="640" height="640" loading="lazy" decoding="async"/></div></div></div></div></div></section>
-<section class="depos overflow-hidden" id="avaliacoes" aria-label="Avaliações de quem comprou"><canvas id="canvas-avaliacoes" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="gold"></canvas><div class="max-w-7xl mx-auto px-6 relative z-10"><div class="text-center mb-16" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-brand-terracotta/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-comments"/></svg></span><h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-dark mb-4">Aprovada por quem comprou</h2><div class="flex justify-center items-center gap-2 mb-4"><div class="flex text-brand-star text-lg"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><span class="depos-nota font-bold text-brand-dark text-lg">4,9/5</span></div></div><ul class="depos-list grid grid-cols-1 md:grid-cols-3 gap-8"><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="100"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: O tamanho é ótimo e cabe bem 2 cobertores de casal Plástico: O plástico é resistente Gostei bastante da compra, a ideia era…</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">CA</span><div><strong class="text-sm font-bold text-brand-dark">carolserviuc</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="200"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: ideal Resistência: perfeita, nem muito grossa e nem muito fina Plástico: bom Amei, com certeza irei comprar mais!!</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">RO</span><div><strong class="text-sm font-bold text-brand-dark">rosimeirezacarias</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li><li class="depos-card bg-white p-8 rounded-3xl shadow-soft border border-gray-50" data-aos="fade-up" data-aos-delay="300"><div class="flex justify-between items-start mb-6"><div class="flex gap-1 text-brand-star text-sm stars" aria-label="Nota 5 de 5"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div><svg class="icon text-brand-beige text-xl" aria-hidden="true"><use href="#i-quote-left"/></svg></div><p class="text-gray-700 font-light text-[15px] mb-8 leading-relaxed italic">Tamanho: O tamanho é excelente e de boa qualidade! Plástico: Parece ser resistente. Otimo custo benefício, Valeu a pena a compra. Estou…</p><footer class="flex items-center gap-4 border-t border-gray-100 pt-6"><span class="depos-avatar" aria-hidden="true">DA</span><div><strong class="text-sm font-bold text-brand-dark">danielaaraujo10</strong><p class="text-[11px] text-brand-trust flex items-center gap-1 font-medium mt-0.5"><svg class="icon" aria-hidden="true"><use href="#i-circle-check"/></svg> Compra na Shopee</p></div></footer></li></ul><div class="text-center mt-12"><a href="https://s.shopee.com.br/2Vs5UxihTd" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-bold text-brand-terracotta hover:text-brand-terracottaDark transition-colors">Ler todas as avaliações na Shopee <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div></div></section>
-<section class="faq py-24 bg-brand-dark text-white relative overflow-hidden z-10" id="faq"><canvas id="canvas-faq" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="night"></canvas><div class="max-w-3xl mx-auto px-6 relative z-10"><div class="text-center mb-14" data-aos="fade-up"><span class="inline-flex w-12 h-12 rounded-2xl bg-white/10 items-center justify-center text-brand-terracotta text-xl mb-4"><svg class="icon" aria-hidden="true"><use href="#i-circle-question"/></svg></span><h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Dúvidas frequentes</h2><p class="text-gray-400 font-light text-sm">Sobre a compra na Shopee, não sobre um lote específico.</p></div><div class="faq-list space-y-4"><div class="faq-item bg-white/5 rounded-2xl border border-white/10 overflow-hidden" data-aos="fade-up" data-aos-delay="100"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-white pr-4">O envio é feito pela Shopee?</span><svg class="icon faq-icon text-brand-terracotta transition-transform duration-300" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer px-6"><p class="text-sm text-gray-300 font-light pb-5">Sim. A compra é finalizada no app Shopee e o envio segue a logística do vendedor na plataforma.</p></div></div><div class="faq-item bg-white/5 rounded-2xl border border-white/10 overflow-hidden" data-aos="fade-up" data-aos-delay="200"><button type="button" class="faq-q w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)"><span class="font-bold text-white pr-4">E se o pedido tiver problema?</span><svg class="icon faq-icon text-brand-terracotta transition-transform duration-300" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer px-6"><p class="text-sm text-gray-300 font-light pb-5">A compra fica coberta pela proteção da Shopee. Abra a conversa ou a reclamação pelo próprio app.</p></div></div></div></div></section>
-<section class="py-20 bg-brand-terracotta relative overflow-hidden z-10">
-<canvas id="canvas-cta" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="terracotta"></canvas>
-<div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
-<h2 class="font-serif text-3xl md:text-5xl text-white mb-6"><svg class="icon text-2xl md:text-3xl mr-2 align-middle opacity-90" aria-hidden="true"><use href="#i-house-chimney"/></svg> Leva o seu hoje</h2>
-<p class="text-brand-light/90 text-lg font-light mb-10 max-w-2xl mx-auto">Abre o app Shopee logado para finalizar a compra deste SKU.</p>
-<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-sm uppercase tracking-widest font-bold w-full rounded-xl text-center leading-snug btn-on-terracotta rounded-full max-w-md mx-auto hover:scale-105" href="https://s.shopee.com.br/2Vs5UxihTd" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Comprar no app Shopee</a>
-<p class="text-white/70 text-xs mt-6">Pagamento e envio pela Shopee</p>
-</div>
-</section>
 <footer class="site-footer bg-brand-dark pt-16 pb-8 border-t border-[#3a3126] relative overflow-hidden z-10">
 <canvas id="canvas-footer" class="section-lines absolute inset-0 w-full h-full z-0 pointer-events-none" data-palette="ink"></canvas>
 <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -443,7 +476,7 @@ Nota 4,9 · + de 1363 vendas
 </div>
 </footer>
 <div id="mobile-cta" class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-gray-100 p-4 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] pb-6 transition-transform duration-300">
-<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-sm uppercase tracking-widest font-bold w-full rounded-xl text-center leading-snug rounded-xl" id="btnApp" href="https://s.shopee.com.br/2Vs5UxihTd" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Comprar no app Shopee</a>
+<a class="btn-shopee js-app flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold w-full rounded-xl text-center leading-snug rounded-xl" id="btnApp" href="https://s.shopee.com.br/3B7pBE1RvJ" data-product-path="shopee.com.br/product/344438002/19276310933" data-shop-id="344438002" data-item-id="19276310933" target="_blank" rel="noopener"><svg class="icon text-lg" aria-hidden="true"><use href="#i-bag-shopping"/></svg> Abrir no app Shopee</a>
 </div>
 <script>
 
@@ -476,17 +509,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const bottomThreshold = document.body.offsetHeight - 200;
-
-        if (mobileCta) {
-            if (scrollPosition > bottomThreshold) {
-                mobileCta.style.transform = 'translateY(100%)';
-            } else {
-                mobileCta.style.transform = 'translateY(0)';
-            }
-        }
+        placeSticky();
     });
+
+    const heroCta = document.getElementById("heroCta");
+    function placeSticky() {
+        if (!mobileCta) return;
+        var show = false;
+        if (heroCta) {
+            show = heroCta.getBoundingClientRect().bottom < 8;
+        }
+        var nearFooter = (window.innerHeight + window.scrollY) > (document.body.offsetHeight - 200);
+        if (nearFooter) show = false;
+        mobileCta.style.transform = show ? "translateY(0)" : "translateY(120%)";
+    }
+    placeSticky();
 
     function initSectionLines() {
         const WAVE = {
@@ -570,16 +607,21 @@ document.addEventListener("DOMContentLoaded", () => {
             drawers.forEach(function (draw) { draw(); });
         }
         window.addEventListener('resize', redrawAll);
-        window.addEventListener('load', redrawAll);
         if (document.fonts && document.fonts.ready) {
             document.fonts.ready.then(redrawAll);
         }
-        setTimeout(redrawAll, 1300);
     }
 
-    setTimeout(() => {
+    function soltaDepoisDaCapa() {
+        var fotos = document.querySelectorAll("img[data-src]");
+        for (var i = 0; i < fotos.length; i++) {
+            fotos[i].src = fotos[i].getAttribute("data-src");
+            fotos[i].removeAttribute("data-src");
+        }
         initSectionLines();
-    }, 100);
+    }
+    if (document.readyState === "complete") soltaDepoisDaCapa();
+    else window.addEventListener("load", soltaDepoisDaCapa);
 
     var menuBtn = document.getElementById("menuBtn");
     var drawer = document.getElementById("menuDrawer");
